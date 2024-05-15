@@ -447,7 +447,7 @@ Each element should look like (MIME-TYPE . MODE) where
     use for buffers of this MIME type."
   :type '(alist :key-type string :value-type function))
 
-(defcustom dape-key-prefix "\C-x\C-a"
+(defcustom dape-key-prefix "\C-e\C-a"
   "Prefix of all dape commands."
   :type 'key-sequence)
 
@@ -2683,8 +2683,8 @@ Using BUFFER and STR."
   ;;       as most of the work is done in an callback.
   (setq revert-buffer-function #'dape--memory-revert))
 
-(define-key dape-memory-mode-map "\C-x]" #'dape-memory-next-page)
-(define-key dape-memory-mode-map "\C-x[" #'dape-memory-previous-page)
+(define-key dape-memory-mode-map "\C-e]" #'dape-memory-next-page)
+(define-key dape-memory-mode-map "\C-e[" #'dape-memory-previous-page)
 
 (defun dape-memory-next-page (&optional backward)
   "Move address `dape-memory-page-size' forward.
@@ -4168,7 +4168,7 @@ plist are used as keymap for each sections defined by the key."
 
 (defvar dape-info-watch-mode-map
   (let ((map (copy-keymap dape-info-scope-mode-map)))
-    (define-key map "\C-x\C-q" 'dape-info-watch-edit-mode)
+    (define-key map "\C-e\C-q" 'dape-info-watch-edit-mode)
     map)
   "Local keymap for dape watch buffer.")
 
